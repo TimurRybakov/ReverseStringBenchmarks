@@ -14,28 +14,28 @@ Unknown processor
 
 
 ```
-| Method                    | InputLength | Mean        | Error      | StdDev     | Median      | Ratio | RatioSD |
-|-------------------------- |------------ |------------:|-----------:|-----------:|------------:|------:|--------:|
-| PointerStringReversener   | 10          |    14.35 ns |   1.446 ns |   4.218 ns |    14.43 ns |  0.35 |    0.13 |
-| StringCreateReversener    | 10          |    26.66 ns |   1.368 ns |   3.837 ns |    26.25 ns |  0.66 |    0.16 |
-| LinqStringReversener      | 10          |    37.31 ns |   1.423 ns |   4.084 ns |    37.06 ns |  0.92 |    0.21 |
-| StackSpanStringReversener | 10          |    41.28 ns |   2.830 ns |   8.212 ns |    40.65 ns |  1.02 |    0.29 |
-| HeapSpanStringReversener  | 10          |    42.22 ns |   2.982 ns |   8.650 ns |    40.83 ns |  1.04 |    0.30 |
-| XorStringReversener       | 10          |    44.59 ns |   2.004 ns |   5.685 ns |    43.51 ns |  1.10 |    0.26 |
-| ArrayStringReversener     | 10          |    46.86 ns |   3.064 ns |   9.035 ns |    46.12 ns |  1.15 |    0.32 |
-|                           |             |             |            |            |             |       |         |
-| StringCreateReversener    | 100         |    63.33 ns |   3.521 ns |  10.327 ns |    60.39 ns |  0.35 |    0.09 |
-| PointerStringReversener   | 100         |    75.33 ns |   8.812 ns |  25.983 ns |    67.63 ns |  0.42 |    0.17 |
-| ArrayStringReversener     | 100         |   116.28 ns |   9.398 ns |  27.563 ns |   111.33 ns |  0.64 |    0.20 |
-| LinqStringReversener      | 100         |   121.83 ns |   8.687 ns |  25.615 ns |   116.40 ns |  0.67 |    0.19 |
-| StackSpanStringReversener | 100         |   186.59 ns |   9.535 ns |  27.964 ns |   185.56 ns |  1.03 |    0.25 |
-| HeapSpanStringReversener  | 100         |   187.77 ns |  12.994 ns |  38.110 ns |   179.21 ns |  1.04 |    0.29 |
-| XorStringReversener       | 100         |   206.53 ns |   9.185 ns |  26.056 ns |   203.83 ns |  1.14 |    0.27 |
-|                           |             |             |            |            |             |       |         |
-| StringCreateReversener    | 1000        |   373.95 ns |  33.895 ns |  99.409 ns |   346.20 ns |  0.28 |    0.09 |
-| PointerStringReversener   | 1000        |   514.53 ns |  26.197 ns |  76.417 ns |   507.04 ns |  0.38 |    0.09 |
-| LinqStringReversener      | 1000        |   681.29 ns |  67.869 ns | 193.633 ns |   627.07 ns |  0.50 |    0.17 |
-| ArrayStringReversener     | 1000        |   700.79 ns |  52.592 ns | 153.412 ns |   658.65 ns |  0.52 |    0.15 |
-| HeapSpanStringReversener  | 1000        | 1,411.17 ns |  99.403 ns | 288.387 ns | 1,328.53 ns |  1.04 |    0.29 |
-| StackSpanStringReversener | 1000        | 1,521.09 ns |  79.575 ns | 221.823 ns | 1,495.73 ns |  1.12 |    0.27 |
-| XorStringReversener       | 1000        | 1,565.02 ns | 124.640 ns | 359.615 ns | 1,430.96 ns |  1.15 |    0.34 |
+| Method                    | InputLength | Mean        | Error      | StdDev     | Median      | Ratio | RatioSD | Gen0   | Gen1   | Allocated | Alloc Ratio |
+|-------------------------- |------------ |------------:|-----------:|-----------:|------------:|------:|--------:|-------:|-------:|----------:|------------:|
+| PointerStringReversener   | 10          |    14.64 ns |   1.020 ns |   2.992 ns |    13.88 ns |  0.36 |    0.09 | 0.0038 |      - |      24 B |        0.20 |
+| StringCreateReversener    | 10          |    28.57 ns |   1.399 ns |   3.990 ns |    27.89 ns |  0.71 |    0.15 | 0.0115 |      - |      72 B |        0.60 |
+| StackSpanStringReversener | 10          |    40.08 ns |   2.706 ns |   7.851 ns |    38.02 ns |  1.00 |    0.25 | 0.0114 |      - |      72 B |        0.60 |
+| LinqStringReversener      | 10          |    40.36 ns |   1.762 ns |   4.999 ns |    39.85 ns |  1.00 |    0.20 | 0.0191 |      - |     120 B |        1.00 |
+| HeapSpanStringReversener  | 10          |    41.20 ns |   2.214 ns |   6.388 ns |    40.20 ns |  1.02 |    0.23 | 0.0191 |      - |     120 B |        1.00 |
+| ArrayStringReversener     | 10          |    41.68 ns |   1.289 ns |   3.699 ns |    41.97 ns |  1.04 |    0.19 | 0.0191 |      - |     120 B |        1.00 |
+| XorStringReversener       | 10          |    42.54 ns |   1.090 ns |   3.056 ns |    42.33 ns |  1.06 |    0.18 | 0.0191 |      - |     120 B |        1.00 |
+|                           |             |             |            |            |             |       |         |        |        |           |             |
+| StringCreateReversener    | 100         |    51.82 ns |   1.626 ns |   4.587 ns |    50.88 ns |  0.29 |    0.05 | 0.0395 |      - |     248 B |        0.53 |
+| PointerStringReversener   | 100         |    57.04 ns |   2.239 ns |   6.167 ns |    56.06 ns |  0.32 |    0.06 | 0.0038 |      - |      24 B |        0.05 |
+| LinqStringReversener      | 100         |    94.89 ns |   3.316 ns |   9.622 ns |    94.12 ns |  0.53 |    0.10 | 0.0751 |      - |     472 B |        1.00 |
+| ArrayStringReversener     | 100         |   106.90 ns |   5.332 ns |  15.720 ns |   104.63 ns |  0.60 |    0.13 | 0.0752 |      - |     472 B |        1.00 |
+| StackSpanStringReversener | 100         |   178.04 ns |  10.101 ns |  29.466 ns |   171.06 ns |  1.00 |    0.23 | 0.0393 |      - |     248 B |        0.53 |
+| HeapSpanStringReversener  | 100         |   183.45 ns |  10.817 ns |  31.552 ns |   177.66 ns |  1.03 |    0.25 | 0.0751 |      - |     472 B |        1.00 |
+| XorStringReversener       | 100         |   198.79 ns |   6.439 ns |  18.475 ns |   196.72 ns |  1.11 |    0.21 | 0.0751 |      - |     472 B |        1.00 |
+|                           |             |             |            |            |             |       |         |        |        |           |             |
+| StringCreateReversener    | 1000        |   496.83 ns |  44.691 ns | 131.771 ns |   491.76 ns |  0.37 |    0.11 | 0.3262 |      - |    2048 B |       0.503 |
+| PointerStringReversener   | 1000        |   532.64 ns |  24.622 ns |  70.249 ns |   521.06 ns |  0.40 |    0.08 | 0.0038 |      - |      24 B |       0.006 |
+| ArrayStringReversener     | 1000        |   737.25 ns |  57.696 ns | 168.303 ns |   713.63 ns |  0.55 |    0.15 | 0.6485 | 0.0038 |    4072 B |       1.000 |
+| LinqStringReversener      | 1000        |   850.35 ns |  68.747 ns | 202.702 ns |   841.65 ns |  0.64 |    0.17 | 0.6485 |      - |    4072 B |       1.000 |
+| HeapSpanStringReversener  | 1000        | 1,362.66 ns |  71.861 ns | 199.128 ns | 1,338.50 ns |  1.02 |    0.20 | 0.6485 |      - |    4072 B |       1.000 |
+| XorStringReversener       | 1000        | 1,643.78 ns |  69.772 ns | 197.932 ns | 1,613.04 ns |  1.23 |    0.22 | 0.6485 | 0.0038 |    4072 B |       1.000 |
+| StackSpanStringReversener | 1000        | 2,348.23 ns | 233.589 ns | 688.742 ns | 2,119.04 ns |  1.76 |    0.57 | 0.3242 |      - |    2048 B |       0.503 |

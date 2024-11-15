@@ -6,6 +6,7 @@ using ReverseStringBenchmarks.StringReverseners;
 namespace ReverseStringBenchmarks;
 
 [Orderer(SummaryOrderPolicy.FastestToSlowest, MethodOrderPolicy.Declared)]
+[MemoryDiagnoser]
 public class Benchmarks
 {
     private string? _input;
