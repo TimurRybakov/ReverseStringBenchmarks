@@ -1,5 +1,8 @@
 namespace ReverseStringBenchmarks.StringReverseners;
 
+/// <summary>
+/// Warning! This method modifies input string! This violates string immutability!
+/// </summary>
 public sealed class PointerStringReversener : IStringReversener
 {
     public unsafe string? Reverse(string? input)
