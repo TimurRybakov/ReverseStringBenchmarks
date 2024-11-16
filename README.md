@@ -1,6 +1,6 @@
 # ReverseStringBenchmarks
 
-A simple BenchmarkDotNet project that benchmarks different algorithms for string reversion.
+A simple BenchmarkDotNet project that benchmarks different algorithms for string reversion (i.e. 'ABC' -> 'CBA').
 
 Here is some results:
 
