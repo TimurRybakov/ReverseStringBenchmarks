@@ -20,7 +20,7 @@ public class Benchmarks
         _input = RandomString(InputLength);
     }
 
-    [Benchmark(Baseline = true)]
+    [Benchmark]
     public string? HeapSpanReversener() => ReverseWith(new HeapSpanReversener());
 
     [Benchmark]
