@@ -4,6 +4,8 @@ using System.Reflection;
 using BenchmarkDotNet.Running;
 
 using ReverseStringBenchmarks;
+using System.Diagnostics;
+
 #if DEBUG
 using ReverseStringBenchmarks.StringReverseners;
 
@@ -14,6 +16,7 @@ benchmarks.SetInput();
 // All public instance methods of Benchmarks class
 MethodInfo[] methods = benchmarks.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public);
 
+var sw = new Stopwatch();
 foreach (var method in methods)
 {
     // If a method has Benchmark attribute...
@@ -23,8 +26,10 @@ foreach (var method in methods)
         if (method.ReturnType == typeof(string))
         {
             // ...invoke it and write the output to console
+            sw.Restart();
             var result = method.Invoke(benchmarks, null);
-            Console.WriteLine($"Results of method {method.Name}: {result}");
+            sw.Stop();
+            Console.WriteLine($"{method.Name}{new string(' ', 30 - method.Name.Length)}{sw.ElapsedTicks} ticks, results: {result}");
         }
     }
 }

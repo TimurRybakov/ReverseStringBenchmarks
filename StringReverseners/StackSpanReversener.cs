@@ -1,6 +1,6 @@
 namespace ReverseStringBenchmarks.StringReverseners;
 
-public sealed class StackSpanStringReversener : IStringReversener
+public sealed class StackSpanReversener : IStringReversener
 {
     public string? Reverse(string? input)
     {

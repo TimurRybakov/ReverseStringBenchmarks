@@ -21,25 +21,28 @@ public class Benchmarks
     }
 
     [Benchmark(Baseline = true)]
-    public string? HeapSpanStringReversener() => ReverseWith(new HeapSpanStringReversener());
+    public string? HeapSpanReversener() => ReverseWith(new HeapSpanReversener());
 
     [Benchmark]
-    public string? StackSpanStringReversener() => ReverseWith(new StackSpanStringReversener());
-
-    [Benchmark]
-    public string? LinqStringReversener() => ReverseWith(new LinqStringReversener());
+    public string? StackSpanReversener() => ReverseWith(new StackSpanReversener());
 
     [Benchmark]
     public string? StringCreateReversener() => ReverseWith(new StringCreateReversener());
 
     [Benchmark]
-    public string? XorStringReversener() => ReverseWith(new XorStringReversener());
+    public string? XorReversener() => ReverseWith(new XorReversener());
 
     [Benchmark]
-    public string? ArrayStringReversener() => ReverseWith(new ArrayStringReversener());
+    public string? ArrayReversener() => ReverseWith(new ArrayReversener());
 
     [Benchmark]
-    public string? PointerStringReversener() => ReverseWith(new PointerStringReversener());
+    public string? StringBuilderReversener() => ReverseWith(new StringBuilderReversener());
+
+    [Benchmark]
+    public string? PointerStringCopyReversener() => ReverseWith(new PointerStringCopyReversener());
+
+    [Benchmark]
+    public string? PointerReversener() => ReverseWith(new PointerReversener());
 
     private string? ReverseWith(IStringReversener reversener)
     {

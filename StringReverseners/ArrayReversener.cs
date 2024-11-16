@@ -1,16 +1,17 @@
 namespace ReverseStringBenchmarks.StringReverseners;
 
-public sealed class LinqStringReversener : IStringReversener
+public sealed class ArrayReversener : IStringReversener
 {
     public string? Reverse(string? input)
     {
-        if (input == null)
+        if (string.IsNullOrEmpty(input))
         {
             return input;
         }
 
-        char[] charArray = input.ToCharArray();
+        var charArray = input.ToCharArray();
         Array.Reverse(charArray);
+
         return new string(charArray);
     }
 }

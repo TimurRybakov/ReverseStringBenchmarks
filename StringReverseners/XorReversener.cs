@@ -1,6 +1,6 @@
 namespace ReverseStringBenchmarks.StringReverseners;
 
-public sealed class XorStringReversener : IStringReversener
+public sealed class XorReversener : IStringReversener
 {
     public string? Reverse(string? input)
     {
