@@ -24,7 +24,7 @@ foreach (var method in methods)
         {
             // ...invoke it and write the output to console
             var result = method.Invoke(benchmarks, null);
-            Console.WriteLine($"Результат вызова метода {method.Name}: {result}");
+            Console.WriteLine($"Results of method {method.Name}: {result}");
         }
     }
 }
