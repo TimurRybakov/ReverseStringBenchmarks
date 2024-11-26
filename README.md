@@ -6,39 +6,42 @@ Here is some results:
 
 ```
 
-BenchmarkDotNet v0.14.0, Windows 10 (10.0.19045.5073/22H2/2022Update)
-Intel Core i7-6700 CPU 3.40GHz (Skylake), 1 CPU, 8 logical and 4 physical cores
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.3737/23H2/2023Update/SunValley3)
+Unknown processor
 .NET SDK 8.0.307
   [Host]     : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX2
   DefaultJob : .NET 8.0.11 (8.0.1124.51707), X64 RyuJIT AVX2
 
 
 ```
-| Method                      | InputLength | Mean         | Error      | StdDev     | Ratio | RatioSD | Gen0   | Allocated | Alloc Ratio |
-|---------------------------- |------------ |-------------:|-----------:|-----------:|------:|--------:|-------:|----------:|------------:|
-| PointerReversener           | 10          |     9.414 ns |  0.2146 ns |  0.2865 ns |  0.31 |    0.01 | 0.0057 |      24 B |        0.20 |
-| PointerStringCopyReversener | 10          |    18.282 ns |  0.0910 ns |  0.0711 ns |  0.60 |    0.01 | 0.0172 |      72 B |        0.60 |
-| StringCreateReversener      | 10          |    18.561 ns |  0.3000 ns |  0.2806 ns |  0.61 |    0.01 | 0.0172 |      72 B |        0.60 |
-| ArrayReversener             | 10          |    27.642 ns |  0.4788 ns |  0.4479 ns |  0.91 |    0.02 | 0.0287 |     120 B |        1.00 |
-| StackSpanReversener         | 10          |    28.974 ns |  0.4620 ns |  0.4322 ns |  0.95 |    0.02 | 0.0172 |      72 B |        0.60 |
-| HeapSpanReversener          | 10          |    30.370 ns |  0.4730 ns |  0.4424 ns |  1.00 |    0.02 | 0.0287 |     120 B |        1.00 |
-| XorReversener               | 10          |    33.992 ns |  0.1856 ns |  0.1550 ns |  1.12 |    0.02 | 0.0287 |     120 B |        1.00 |
-| StringBuilderReversener     | 10          |    46.717 ns |  1.0027 ns |  1.6475 ns |  1.54 |    0.06 | 0.0401 |     168 B |        1.40 |
-|                             |             |              |            |            |       |         |        |           |             |
-| StringCreateReversener      | 100         |    35.163 ns |  0.3936 ns |  0.3681 ns |  0.35 |    0.00 | 0.0592 |     248 B |        0.53 |
-| PointerReversener           | 100         |    50.312 ns |  0.3849 ns |  0.3214 ns |  0.50 |    0.00 | 0.0057 |      24 B |        0.05 |
-| ArrayReversener             | 100         |    53.886 ns |  0.9300 ns |  0.8700 ns |  0.54 |    0.01 | 0.1128 |     472 B |        1.00 |
-| PointerStringCopyReversener | 100         |    57.428 ns |  0.2687 ns |  0.2244 ns |  0.58 |    0.00 | 0.0592 |     248 B |        0.53 |
-| HeapSpanReversener          | 100         |    99.770 ns |  0.7141 ns |  0.6330 ns |  1.00 |    0.01 | 0.1128 |     472 B |        1.00 |
-| StackSpanReversener         | 100         |   124.870 ns |  0.7170 ns |  0.6356 ns |  1.25 |    0.01 | 0.0591 |     248 B |        0.53 |
-| XorReversener               | 100         |   137.214 ns |  2.7514 ns |  3.1685 ns |  1.38 |    0.03 | 0.1128 |     472 B |        1.00 |
-| StringBuilderReversener     | 100         |   221.350 ns |  1.8175 ns |  1.6112 ns |  2.22 |    0.02 | 0.1242 |     520 B |        1.10 |
-|                             |             |              |            |            |       |         |        |           |             |
-| StringCreateReversener      | 1000        |   189.929 ns |  3.2694 ns |  3.0582 ns |  0.24 |    0.00 | 0.4897 |    2048 B |       0.503 |
-| ArrayReversener             | 1000        |   323.436 ns |  2.7876 ns |  2.4712 ns |  0.40 |    0.01 | 0.9732 |    4072 B |       1.000 |
-| PointerReversener           | 1000        |   465.021 ns |  2.5333 ns |  1.9779 ns |  0.58 |    0.01 | 0.0057 |      24 B |       0.006 |
-| PointerStringCopyReversener | 1000        |   471.685 ns |  9.1704 ns | 11.2621 ns |  0.59 |    0.02 | 0.4897 |    2048 B |       0.503 |
-| HeapSpanReversener          | 1000        |   805.653 ns | 10.5204 ns |  9.3261 ns |  1.00 |    0.02 | 0.9727 |    4072 B |       1.000 |
-| StackSpanReversener         | 1000        | 1,131.602 ns |  9.5431 ns |  8.4597 ns |  1.40 |    0.02 | 0.4883 |    2048 B |       0.503 |
-| XorReversener               | 1000        | 1,192.833 ns | 20.8959 ns | 19.5460 ns |  1.48 |    0.03 | 0.9727 |    4072 B |       1.000 |
-| StringBuilderReversener     | 1000        | 2,165.372 ns | 16.4737 ns | 14.6035 ns |  2.69 |    0.03 | 0.9842 |    4120 B |       1.012 |
+| Method                      | InputLength | Mean         | Error      | StdDev     | Median       | Gen0   | Gen1   | Allocated |
+|---------------------------- |------------ |-------------:|-----------:|-----------:|-------------:|-------:|-------:|----------:|
+| PointerReversener           | 10          |     7.479 ns |  0.1996 ns |  0.1770 ns |     7.471 ns | 0.0029 |      - |      24 B |
+| PointerStringCopyReversener | 10          |    15.412 ns |  0.3599 ns |  0.3367 ns |    15.392 ns | 0.0086 |      - |      72 B |
+| StringCreateReversener      | 10          |    15.644 ns |  0.3462 ns |  0.3238 ns |    15.680 ns | 0.0086 |      - |      72 B |
+| ArrayReversener             | 10          |    23.988 ns |  0.5143 ns |  0.5716 ns |    23.949 ns | 0.0143 |      - |     120 B |
+| StackSpanReversener         | 10          |    26.456 ns |  0.5787 ns |  0.5413 ns |    26.621 ns | 0.0086 |      - |      72 B |
+| HeapSpanReversener          | 10          |    26.633 ns |  0.5834 ns |  1.2433 ns |    27.142 ns | 0.0143 |      - |     120 B |
+| XorReversener               | 10          |    30.663 ns |  0.6518 ns |  0.9756 ns |    30.742 ns | 0.0143 |      - |     120 B |
+| StringBuilderReversener     | 10          |    39.741 ns |  0.8418 ns |  1.2073 ns |    39.724 ns | 0.0200 |      - |     168 B |
+| GlobalHeapPointerReversener | 10          |   141.037 ns |  2.2652 ns |  2.0081 ns |   140.796 ns | 0.0086 |      - |      72 B |
+|                             |             |              |            |            |              |        |        |           |
+| StringCreateReversener      | 100         |    26.467 ns |  0.5789 ns |  0.7109 ns |    26.456 ns | 0.0296 |      - |     248 B |
+| ArrayReversener             | 100         |    39.995 ns |  0.9862 ns |  2.9078 ns |    38.508 ns | 0.0564 |      - |     472 B |
+| PointerReversener           | 100         |    54.064 ns |  0.7378 ns |  0.6901 ns |    53.934 ns | 0.0029 |      - |      24 B |
+| PointerStringCopyReversener | 100         |    66.857 ns |  1.1492 ns |  0.9596 ns |    67.107 ns | 0.0296 |      - |     248 B |
+| HeapSpanReversener          | 100         |    96.530 ns |  1.9932 ns |  3.7438 ns |    96.041 ns | 0.0564 |      - |     472 B |
+| XorReversener               | 100         |   133.439 ns |  2.3778 ns |  2.2242 ns |   133.384 ns | 0.0563 |      - |     472 B |
+| StackSpanReversener         | 100         |   140.190 ns |  1.6397 ns |  1.5338 ns |   139.977 ns | 0.0296 |      - |     248 B |
+| StringBuilderReversener     | 100         |   150.971 ns |  2.4512 ns |  2.2928 ns |   151.168 ns | 0.0620 |      - |     520 B |
+| GlobalHeapPointerReversener | 100         |   483.365 ns | 26.7961 ns | 78.1655 ns |   481.306 ns | 0.0296 |      - |     248 B |
+|                             |             |              |            |            |              |        |        |           |
+| StringCreateReversener      | 1000        |   114.206 ns |  2.2787 ns |  3.6143 ns |   113.107 ns | 0.2449 |      - |    2048 B |
+| ArrayReversener             | 1000        |   195.152 ns |  5.8357 ns | 16.9305 ns |   190.950 ns | 0.4866 | 0.0017 |    4072 B |
+| PointerReversener           | 1000        |   522.547 ns |  4.0495 ns |  3.5898 ns |   521.754 ns | 0.0029 |      - |      24 B |
+| PointerStringCopyReversener | 1000        |   632.353 ns |  8.6601 ns |  7.6769 ns |   634.736 ns | 0.2441 |      - |    2048 B |
+| HeapSpanReversener          | 1000        |   725.488 ns | 13.7403 ns | 38.7547 ns |   706.105 ns | 0.4864 | 0.0010 |    4072 B |
+| XorReversener               | 1000        | 1,047.343 ns | 19.7775 ns | 18.4998 ns | 1,046.290 ns | 0.4864 |      - |    4072 B |
+| StackSpanReversener         | 1000        | 1,142.372 ns | 22.2800 ns | 25.6577 ns | 1,141.060 ns | 0.2441 |      - |    2048 B |
+| StringBuilderReversener     | 1000        | 1,250.211 ns | 19.8470 ns | 18.5649 ns | 1,249.715 ns | 0.4921 | 0.0019 |    4120 B |
+| GlobalHeapPointerReversener | 1000        | 2,367.298 ns | 40.6016 ns | 35.9922 ns | 2,363.528 ns | 0.2441 |      - |    2048 B |
